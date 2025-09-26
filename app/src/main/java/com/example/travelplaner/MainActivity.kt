@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val dateAndTime = findViewById<TextView>(R.id.DateAndTimeText)
+
 
 
         val elfSwitch = findViewById<Switch>(R.id.ElfSwitch)
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         val hour = calender.get(Calendar.HOUR_OF_DAY)
         val minute = calender.get(Calendar.MINUTE)
         time = "$hour:$minute"
+        updateTimeAndDate()
     }
 
     private fun showDatePickerDialog() {
@@ -68,7 +69,12 @@ class MainActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         date = "$day.$month.$year"
-        Log.i("w", date)
+        updateTimeAndDate()
+    }
+
+    private fun updateTimeAndDate(){
+        val dateAndTime = findViewById<TextView>(R.id.DateAndTimeText)
+        dateAndTime.text = "Data: $date Godzina: $time"
     }
 
 
