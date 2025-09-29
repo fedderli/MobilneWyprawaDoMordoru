@@ -189,22 +189,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <RadioButton
+                android:id="@+id/ukryty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ukryty"
-                android:textSize="22dp"/>
+                android:textSize="22sp"/>
 
             <RadioButton
+                android:id="@+id/zbalansoway"
+                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="zbalansowany"
-                android:textSize="22dp"/>
+                android:textSize="22sp"/>
 
             <RadioButton
+                android:id="@+id/forsowny"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="forsowny"
-                android:textSize="22dp"/>
+                android:textSize="22sp"/>
         </RadioGroup>
 
     </LinearLayout>
@@ -226,9 +230,13 @@
         <SeekBar
             android:id="@+id/timeMarch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:min="1"
+            android:max="10080"
+            />
 
         <TextView
+            android:id="@+id/timeMarchText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Marsz trwa: mm min."
@@ -266,12 +274,14 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
             <Button
+                android:id="@+id/startButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:text="START"/>
             <Button
+                android:id="@+id/stopButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -280,36 +290,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/white"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Odliczanie do wyruszenia"
-            android:textAlignment="center"
-            android:textSize="22sp"/>
-
-        <Button
-            android:id="@+id/btnStartCountdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Start" />
-
-        <ProgressBar
-            android:id="@+id/countdownDeparture"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:max="30"
-            android:progress="30" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -345,18 +326,50 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Podsumowanie"
+                android:text="Odliczanie do wyruszenia"
                 android:textAlignment="center"
                 android:textSize="22sp"/>
 
             <Button
-                android:id="@+id/summaryButton"
+                android:id="@+id/btnStartCountdown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Pokaz podsumowanie" />
+                android:text="Start" />
 
+            <ProgressBar
+                android:id="@+id/countdownDeparture"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="30"
+                android:progress="30" />
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Podsumowanie"
+            android:textAlignment="center"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_gravity="left"/>
+
+    </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
